@@ -1,0 +1,946 @@
+
+		Noxim - the NoC Simulator
+		(C) University of Catania
+
+Using the following configuration: 
+- verbose_mode = 3
+- trace_mode = 0
+- mesh_dim_x = 5
+- mesh_dim_y = 4
+- buffer_depth = 4
+- max_packet_size = 3
+- routing_algorithm = 0
+- selection_strategy = 0
+- packet_injection_rate = 0.01
+- probability_of_retransmission = 0.01
+- traffic_distribution = 0
+- simulation_time = 20
+- stats_warm_up_time = 1000
+- rnd_generator_seed = 1248114919
+To NoC poy dimiourgeitai einai:
+
+dim_x = 4
+dim_y = 5
+
+19 	18 	17 	16 	15 	
+14 	13 	12 	11 	10 	
+9 	8 	7 	6 	5 	
+4 	3 	2 	1 	0 	
+Reset... done! Now running for 20 cycles...
+1003: ProcessingElement[0] SENDING ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1004: Router[0], Input[4], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1004: ProcessingElement[14] SENDING ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1005: Router[0], Input[4] (1 flits), reserved Output[1], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1005: Router[0], Input[4] forward to Output[1], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1005: ProcessingElement[0] SENDING ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1005: Router[14], Input[4], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1006: Router[0], Input[4], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1006: Router[1], Input[3], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1006: Router[14], Input[4] (1 flits), reserved Output[3], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1006: Router[14], Input[4] forward to Output[3], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1006: ProcessingElement[14] SENDING ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1007: Router[0], Input[4] forward to Output[1], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1007: ProcessingElement[0] SENDING ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1007: Router[1], Input[3] (1 flits), reserved Output[2], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1007: Router[1], Input[3] forward to Output[2], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1007: Router[13], Input[1], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1007: Router[14], Input[4], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1008: Router[0], Input[4], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1008: Router[1], Input[3], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1008: Router[11], Input[0], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1008: Router[13], Input[1] (1 flits), reserved Output[3], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1008: Router[13], Input[1] forward to Output[3], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1008: Router[14], Input[4] forward to Output[3], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1008: ProcessingElement[14] SENDING ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1009: Router[0], Input[4] forward to Output[1], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1009: Router[1], Input[3] forward to Output[2], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1009: Router[11], Input[0] (1 flits), reserved Output[0], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1009: Router[11], Input[0] forward to Output[0], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1009: Router[12], Input[1], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1009: Router[13], Input[1], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1009: Router[14], Input[4], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1010: Router[1], Input[2], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1010: Router[1], Input[3], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1010: Router[11], Input[0], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1010: Router[12], Input[1] (1 flits), reserved Output[0], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1010: Router[12], Input[1] forward to Output[0], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1010: Router[13], Input[1] forward to Output[3], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1010: Router[14], Input[4] forward to Output[3], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1011: Router[1], Input[3] forward to Output[2], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1011: Router[11], Input[0] forward to Output[0], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1011: Router[2], Input[2], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1011: Router[12], Input[1], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1011: Router[13], Input[1], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1012: Router[1], Input[2] (1 flits), reserved Output[2], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1012: Router[1], Input[2], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1012: Router[11], Input[0], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1012: Router[2], Input[2] (1 flits), reserved Output[4], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1012: Router[2], Input[2] forward to Output[4], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1012: Router[12], Input[1] forward to Output[0], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1012: Router[13], Input[1] forward to Output[3], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1013: Router[1], Input[2] forward to Output[2], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1013: Router[11], Input[0] forward to Output[0], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1013: Router[2], Input[2], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+
+Info: (I804) /IEEE_Std_1666/deprecated: sc_simulation_time() is deprecated use sc_time_stamp()
+1013: ProcessingElement[2] RECEIVING ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1013: Router[12], Input[1], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1014: Router[1], Input[2], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1014: Router[11], Input[0], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1014: Router[2], Input[2] forward to Output[4], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1014: Router[12], Input[1] forward to Output[0], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1015: Router[1], Input[2] forward to Output[2], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1015: Router[11], Input[0] (1 flits), reserved Output[0], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1015: Router[11], Input[0] forward to Output[0], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1015: Router[2], Input[2], Received flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1015: ProcessingElement[2] RECEIVING ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1015: ProcessingElement[12] SENDING ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1016: Router[1], Input[2], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1016: Router[11], Input[0], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1016: Router[2], Input[2] forward to Output[4], flit: ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1016: Router[12], Input[4], Received flit: ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1017: Router[1], Input[2] forward to Output[2], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1017: Router[11], Input[0] forward to Output[0], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1017: ProcessingElement[2] RECEIVING ### FLIT ###
+Source Tile[14]
+Destination Tile[2]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1004
+Total number of hops from source to destination is 0
+
+1017: Router[12], Input[4] (1 flits), reserved Output[1], flit: ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1017: Router[12], Input[4] forward to Output[1], flit: ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1017: ProcessingElement[12] SENDING ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1018: Router[1], Input[2] (1 flits), reserved Output[2], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1018: Router[1], Input[2], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1018: Router[11], Input[0], Received flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1018: Router[12], Input[4], Received flit: ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1018: Router[13], Input[3], Received flit: ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1018: ProcessingElement[4] SENDING ### FLIT ###
+Source Tile[4]
+Destination Tile[13]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1018
+Total number of hops from source to destination is 0
+
+1019: Router[1], Input[2] forward to Output[2], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1019: Router[11], Input[0] forward to Output[0], flit: ### FLIT ###
+Source Tile[0]
+Destination Tile[6]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1003
+Total number of hops from source to destination is 0
+
+1019: Router[12], Input[4] forward to Output[1], flit: ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is BODY
+Sequence no. 1
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1019: ProcessingElement[12] SENDING ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is TAIL
+Sequence no. 2
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1019: Router[13], Input[3] (1 flits), reserved Output[4], flit: ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1019: Router[13], Input[3] forward to Output[4], flit: ### FLIT ###
+Source Tile[12]
+Destination Tile[13]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1015
+Total number of hops from source to destination is 0
+
+1019: Router[4], Input[4], Received flit: ### FLIT ###
+Source Tile[4]
+Destination Tile[13]
+Flit Type is HEAD
+Sequence no. 0
+Payload printing not implemented (yet).
+Unix timestamp at packet generation 1018
+Total number of hops from source to destination is 0
+
+Noxim simulation completed.
+ ( 1020 cycles executed)
+% Total received packets: 0
+% Total received flits: 0
+% Global average delay (cycles): nan
+% Global average throughput (flits/cycle): nan
+% Throughput (flits/cycle/IP): nan
+% Max delay (cycles): -1
+% Total energy (J): 1.6277e-08
+
+detailed = [
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+%  src  dst delay avg delay max     throughput       energy    received    received
+%              cycles    cycles    flits/cycle        Joule     packets       flits
+% Aggregated average delay (cycles): nan
+% Aggregated average throughput (flits/cycle): 0
+];
+
+max_delay = [
+       -1    -1    -1    -1    -1
+       -1    -1    -1    -1    -1
+       -1    -1    -1    -1    -1
+       -1    -1    -1    -1    -1
+];
+
+routed_flits = [
+            0         7         0         0         0
+            0         0         0         0         0
+            0         6         3         3         0
+            0         0         0         0         0
+];
+
+Info: (I804) /IEEE_Std_1666/deprecated: You can turn off warnings about
+             IEEE 1666 deprecated features by placing this method call as the
+             first statement in your sc_main() function:
+
+  sc_report_handler::set_actions("/IEEE_Std_1666/deprecated", SC_DO_NOTHING);
+
+
