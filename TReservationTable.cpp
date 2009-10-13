@@ -47,6 +47,8 @@ void TReservationTable::clear()
 
 bool TReservationTable::isAvailable(const int port_out) const
 {
+  //Iasonas
+  if (TGlobalParams::topology == 1)	
   assert(port_out >= 0 && port_out < DIRECTIONS+1);
 
   return ((rtable[port_out] == NOT_RESERVED));
@@ -73,9 +75,10 @@ void TReservationTable::reserve(const int port_in, const int port_out)
 
 void TReservationTable::release(const int port_out)
 {
-  assert(port_out >= 0 && port_out < DIRECTIONS+1);
+	//Iasonas
+  if (TGlobalParams::topology==1)  assert(port_out >= 0 && port_out < DIRECTIONS+1);
     // there is a valid reservation on port_out
-  assert(rtable[port_out] >= 0 && rtable[port_out] < DIRECTIONS+1);
+  if (TGlobalParams::topology==1)  assert(rtable[port_out] >= 0 && rtable[port_out] < DIRECTIONS+1);
 
   rtable[port_out] = NOT_RESERVED;
 }
@@ -84,7 +87,8 @@ void TReservationTable::release(const int port_out)
 
 int TReservationTable::getOutputPort(const int port_in) const
 {
-  assert(port_in >= 0 && port_in < DIRECTIONS+1);
+if (TGlobalParams::topology==1)  assert(port_in >= 0 && port_in < DIRECTIONS+1);
+if (TGlobalParams::topology==2)  assert(port_in >= 0 && port_in < DIRECTIONS_2+1);
 
   for (int i=0; i<DIRECTIONS+1; i++)
     if (rtable[i] == port_in)

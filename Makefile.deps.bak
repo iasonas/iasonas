@@ -5,6 +5,10 @@ TNoC.o: TGlobalRoutingTable.h TLocalRoutingTable.h TReservationTable.h
 TNoC.o: TProcessingElement.h TGlobalTrafficTable.h
 TRouter.o: TRouter.h NoximDefs.h TBuffer.h TStats.h TPower.h
 TRouter.o: TGlobalRoutingTable.h TLocalRoutingTable.h TReservationTable.h
+#
+TRouter2.o: TRouter.h NoximDefs.h TBuffer.h TStats.h TPower.h
+TRouter2.o: TGlobalRoutingTable.h TLocalRoutingTable.h TReservationTable.h
+#
 TProcessingElement.o: TProcessingElement.h NoximDefs.h TGlobalTrafficTable.h
 TBuffer.o: TBuffer.h NoximDefs.h
 TStats.o: TStats.h NoximDefs.h TPower.h

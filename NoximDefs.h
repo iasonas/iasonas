@@ -3,25 +3,6 @@
   NoximDefs.h -- Common constants and structs definitions
 
  *****************************************************************************/
-/* Copyright 2005-2007  
-    Fabrizio Fazzino <fabrizio.fazzino@diit.unict.it>
-    Maurizio Palesi <mpalesi@diit.unict.it>
-    Davide Patti <dpatti@diit.unict.it>
-
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- */
 #ifndef __NOXIM_DEFS_H__
 #define __NOXIM_DEFS_H__
 
@@ -41,7 +22,16 @@ using namespace std;
 #define DIRECTION_SOUTH        2
 #define DIRECTION_WEST         3
 #define DIRECTION_LOCAL        4
-//#define DIRECTION_CUSTOM       5
+
+//Iasonas
+//define custom directions as numbers
+#define DIRECTIONS_2			6
+#define DIRECTION_NORTH_0		0
+#define DIRECTION_NORTH_1		1
+#define DIRECTION_NORTH_2		2
+#define DIRECTION_SOUTH_0		3
+#define DIRECTION_SOUTH_1		4
+#define DIRECTION_SOUTH_2		5
 // Generic not reserved resource
 #define NOT_RESERVED          -2
 
@@ -106,6 +96,7 @@ using namespace std;
 
 //*******
 #define DEFAULT_choice                          1
+#define DEFAULT_topology			1
 //************
 
 // TODO by Fafa - this MUST be removed!!!
@@ -137,8 +128,10 @@ struct TGlobalParams
   static vector<pair<int,double> > hotspots;
   static float dyad_threshold;
   static unsigned int max_volume_to_be_drained;
+  //Iasonas
 	//*******
 	static int choice;
+	static int topology;
 	//**********
 };
 
@@ -359,8 +352,8 @@ inline TCoord id2Coord(int id)
   coord.x = id % TGlobalParams::mesh_dim_x;
   coord.y = id / TGlobalParams::mesh_dim_x;
 
-  assert(coord.x < TGlobalParams::mesh_dim_x);
-  assert(coord.y < TGlobalParams::mesh_dim_y);
+	if (TGlobalParams::topology==1)  assert(coord.x < TGlobalParams::mesh_dim_x);
+  if (TGlobalParams::topology==1)  assert(coord.y < TGlobalParams::mesh_dim_y);
 
   return coord;
 }

@@ -47,7 +47,7 @@ void TProcessingElement::rxProcess()
       TFlit flit_tmp = flit_rx.read();
       if(TGlobalParams::verbose_mode > VERBOSE_OFF)
       {
-        cout << sc_simulation_time() << ": ProcessingElement[" << local_id << "] RECEIVING " << flit_tmp << endl;
+        cout << sc_simulation_time() << ": ProcessingElement[" << local_id << "] \033[22;32mRECEIVING\033[22;30m " << flit_tmp << endl;
       }
       current_level_rx = 1-current_level_rx;     // Negate the old value for Alternating Bit Protocol (ABP)
     }
@@ -85,7 +85,7 @@ void TProcessingElement::txProcess()
         TFlit flit = nextFlit();                  // Generate a new flit
         if(TGlobalParams::verbose_mode > VERBOSE_OFF)
         {
-          cout << sc_time_stamp().to_double()/1000 << ": ProcessingElement[" << local_id << "] SENDING " << flit << endl;
+          cout << sc_time_stamp().to_double()/1000 << ": ProcessingElement[" << local_id << "] \033[22;31mSENDING\033[22;30m " << flit << endl;
         }
 	flit_tx->write(flit);                     // Send the generated flit
 	current_level_tx = 1-current_level_tx;    // Negate the old value for Alternating Bit Protocol (ABP)

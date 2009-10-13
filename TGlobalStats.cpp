@@ -309,6 +309,9 @@ void TGlobalStats::showStats(std::ostream& out, bool detailed)
 	  for (unsigned int x=0; x<rf_mtx[y].size(); x++)
 	    out << setw(10) << rf_mtx[y][x];
 	  out << endl;
+	  //Iasonas
+	  if ((TGlobalParams::topology == 2) && (y==0))
+		cout << setw (23) << noc->tbig->r->getRoutedFlits() << endl;
 	}
       out << "];" << endl;
     }

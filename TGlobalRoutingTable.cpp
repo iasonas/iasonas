@@ -1,22 +1,3 @@
-/* Copyright 2005-2007  
-    Fabrizio Fazzino <fabrizio.fazzino@diit.unict.it>
-    Maurizio Palesi <mpalesi@diit.unict.it>
-    Davide Patti <dpatti@diit.unict.it>
-
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,8 +8,8 @@
 
 using namespace std;
 
-//---------------------------------------------------------------------------
-
+//Iasonas:Finds the ID of the next node, given the ID of the current node and direction
+//TLinkID is a pair of source and destination node
 TLinkId direction2ILinkId(const int node_id, const int dir)
 {
   int node_src;
@@ -63,8 +44,8 @@ TLinkId direction2ILinkId(const int node_id, const int dir)
   return TLinkId(node_src, node_id);
 }
 
-//---------------------------------------------------------------------------
-
+//Iasonas:founds the direction, given...
+//This method is called in table based routing
 int oLinkId2Direction(const TLinkId& out_link)
 {
   int src = out_link.first;
@@ -85,7 +66,7 @@ int oLinkId2Direction(const TLinkId& out_link)
   return 0;  
 }
 
-//---------------------------------------------------------------------------
+//Returns a vector with the integers correspond to directions.
 
 vector<int> admissibleOutputsSet2Vector(const TAdmissibleOutputs& ao)
 {
@@ -96,12 +77,11 @@ vector<int> admissibleOutputsSet2Vector(const TAdmissibleOutputs& ao)
 
   return dirs;
 }
-
-//---------------------------------------------------------------------------
-
+//Iasonas...regarding the input routing table this defines the nubmer of column where output link/links(Outs) should be
+//Old value: #define COLUMN_AOC 22
+//Eleos!! "TAB" is counted as one character, so DON'T use Tab but only space!
 #define COLUMN_AOC 22
-
-//---------------------------------------------------------------------------
+//??
 
 TGlobalRoutingTable::TGlobalRoutingTable()
 {
@@ -120,36 +100,41 @@ bool TGlobalRoutingTable::load(const char* fname)
   rt_noc.clear();
 
   bool stop = false;
+  int epan=1;
   while (!fin.eof() && !stop)
     {
+	  //cout << epan << "  line of file ****" <<endl;
+	  epan++;	
       char line[128];
-      fin.getline(line, sizeof(line)-1);
-
-      if (line[0] == '\0')
-	stop = true;
-      else
-	{
-	  if (line[0] != '%')
+      //fin.getline(line, sizeof(line)-1);
+	  fin.getline(line, 127);
+      //cout<< "H grammi pou diabastike einai:"<<endl << line << endl;
+	  //cout<< "line+1 is:"<< endl << line+1<<endl;	
+      if (line[0] == '\0') stop = true;
+      else {
+		if (line[0] != '%')
 	    {
 	      int node_id, in_src, in_dst, dst_id, out_src, out_dst;
-	  
 	      if (sscanf(line+1, "%d %d->%d %d", &node_id, &in_src, &in_dst, &dst_id) == 4)
-		{
+		  {
 		  TLinkId lin(in_src, in_dst);
 		  
 		  char *pstr = line+COLUMN_AOC;
+		  //cout<< "To pstr einai:" << pstr << endl;
 		  while (sscanf(pstr, "%d->%d", &out_src, &out_dst) == 2)
 		    {
 		      TLinkId lout(out_src, out_dst);
-
+			//Iasonas:The most important line
 		      rt_noc[node_id][lin][dst_id].insert(lout);
 		      
 		      pstr = strstr(pstr, ",");
+		      //cout<< "To pstr einai:" << pstr << endl;
 		      pstr++;
+		      //cout<< "To pstr einai:" << pstr << endl;
 		    }
-		}
+		  }
 	    }
-	}
+	  }
     }
 
   valid = true;

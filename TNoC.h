@@ -1,27 +1,3 @@
-/*****************************************************************************
-
-  TNoC.h -- Network-on-Chip (NoC) definition
-
- *****************************************************************************/
-/* Copyright 2005-2007  
-    Fabrizio Fazzino <fabrizio.fazzino@diit.unict.it>
-    Maurizio Palesi <mpalesi@diit.unict.it>
-    Davide Patti <dpatti@diit.unict.it>
-
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- */
 #ifndef __TNOC_H__
 #define __TNOC_H__
 
@@ -29,6 +5,7 @@
 
 #include <systemc.h>
 #include "TTile.h"
+#include "TTile2.h"
 
 SC_MODULE(TNoC)
 {
@@ -80,7 +57,15 @@ SC_MODULE(TNoC)
   sc_signal<int>    free_slots_to_west[MAX_STATIC_DIM+1][MAX_STATIC_DIM+1];
   sc_signal<int>    free_slots_to_south[MAX_STATIC_DIM+1][MAX_STATIC_DIM+1];
   sc_signal<int>    free_slots_to_north[MAX_STATIC_DIM+1][MAX_STATIC_DIM+1];
-
+  //Iasonas
+  // MY*************************
+  //Dummy signals to connect the borderline nodes because every port has to be connected
+  //otherwise leads to E109:port not bounded error. 
+  sc_signal<bool>	  dummy_signal;
+  sc_signal<TFlit> dummy_flit;
+  sc_signal<int> dummy_slots;
+  sc_signal<TNoP_data> dummy_data;
+  //	
   // NoP
   sc_signal<TNoP_data>    NoP_data_to_east[MAX_STATIC_DIM][MAX_STATIC_DIM];
   sc_signal<TNoP_data>    NoP_data_to_west[MAX_STATIC_DIM][MAX_STATIC_DIM];
@@ -90,7 +75,8 @@ SC_MODULE(TNoC)
   // Matrix of tiles
 
   TTile*             t[MAX_STATIC_DIM][MAX_STATIC_DIM];
-
+  //each new Tile is constructed in file TNoC.cpp with: t[i][j] = new TTile(tile_name);
+  TTile2* tbig ;
 
   // Global tables
   TGlobalRoutingTable grtable;

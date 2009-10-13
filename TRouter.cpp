@@ -1,27 +1,3 @@
-/*****************************************************************************
-
-  TRouter.cpp -- Router implementation
-
-*****************************************************************************/
-/* Copyright 2005-2007  
-    Fabrizio Fazzino <fabrizio.fazzino@diit.unict.it>
-    Maurizio Palesi <mpalesi@diit.unict.it>
-    Davide Patti <dpatti@diit.unict.it>
-
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program; if not, write to the Free Software
- *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- */
 #include "TRouter.h"
 
 //---------------------------------------------------------------------------
@@ -62,7 +38,8 @@ void TRouter::rxProcess()
 
 	      if(TGlobalParams::verbose_mode > VERBOSE_OFF)
 		{
-		  cout << sc_time_stamp().to_double()/1000 << ": Router[" << local_id <<"], Input[" << i << "], Received flit: " << received_flit << endl;
+		  cout << sc_time_stamp().to_double()/1000 << ": Router[" << local_id <<"], Input[" << i << 
+		  "], Received flit: " << received_flit << endl; // "****" << current_level_rx[i]<< endl;
 		}
 
 	      // Store the incoming flit in the circular buffer
@@ -70,6 +47,8 @@ void TRouter::rxProcess()
 
 	      // Negate the old value for Alternating Bit Protocol (ABP)
 	      current_level_rx[i] = 1-current_level_rx[i];
+		//******************
+		//if(TGlobalParams::verbose_mode > VERBOSE_OFF){	cout << "*****" << current_level_rx[i] << endl; }
 
 	      // Incoming flit
 	      stats.power.Incoming();
@@ -114,6 +93,25 @@ void TRouter::txProcess()
 		  route_data.dir_in = i;
 
 		  int o = route(route_data);
+		  //Iasonas
+		  if (TGlobalParams::topology==2)
+		  {
+		  	TCoord local,destin;
+  			local.x = local_id % TGlobalParams::mesh_dim_x;
+  			local.y = local_id / TGlobalParams::mesh_dim_x; 
+			destin.x = flit.dst_id % TGlobalParams::mesh_dim_x;
+  			destin.y = flit.dst_id / TGlobalParams::mesh_dim_x; 
+			if(TGlobalParams::verbose_mode > VERBOSE_OFF) 
+				cout << "local.x:" << local.x << "\tlocal.y:" << local.y << "\tdestination.x:"<<destin.x << "\tdestination.y:" << destin.y << endl;
+			if (local.y!=destin.y) {
+					if (local.y==0)  o = 2; 
+					if (local.y==1)  o=0; 
+				}	
+		  	}
+		  //Iasonas
+		  if(TGlobalParams::verbose_mode > VERBOSE_OFF) 
+		  cout << "\033[22;34mTo direction pou antistoixei sto o einai: \033[22;30m "<< o << "\tme local:" << route_data.current_id 
+					   <<"\t source:"<< route_data.src_id << "\t destination "<< route_data.dst_id << "\t direction"<<route_data.dir_in << endl;
 
 		  if (reservation_table.isAvailable(o))
 		    {
@@ -123,7 +121,7 @@ void TRouter::txProcess()
 			  cout << sc_time_stamp().to_double()/1000 
 			       << ": Router[" << local_id 
 			       << "], Input[" << i << "] (" << buffer[i].Size() << " flits)" 
-			       << ", reserved Output[" << o << "], flit: " << flit << endl;
+			       << ", \033[22;35mreserved\033[22;30m Output[" << o << "], flit: " << flit << endl;
 			}		      
 		    }
 		}
@@ -175,7 +173,10 @@ void TRouter::txProcess()
 			      }
 			    }
 			}
-		      else if (i != DIRECTION_LOCAL)
+//Iasonas
+//***I count flits routed to local PE
+		      //else if (i != DIRECTION_LOCAL)
+			
 			{
 			  // Increment routed flits counter
 			  routed_flits++;
@@ -732,10 +733,13 @@ vector<int> TRouter::routingFullyAdaptive(const TCoord& current, const TCoord& d
 
 vector<int> TRouter::routingTableBased(const int dir_in, const TCoord& current, const TCoord& destination)
 {
+	//Iasonas:routing table is Local routing table
   TAdmissibleOutputs ao = routing_table.getAdmissibleOutputs(dir_in, coord2Id(destination));
   
   if (ao.size() == 0)
     {
+		//Iasonas
+	  cout << "Trying to send from node  " << coord2Id(current) << "   to node   " << coord2Id(destination) << endl;	
       cout << "dir: " << dir_in << ", (" << current.x << "," << current.y << ") --> "
 	   << "(" << destination.x << "," << destination.y << ")" << endl
 	   << coord2Id(current) << "->" << coord2Id(destination) << endl;

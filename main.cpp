@@ -60,15 +60,15 @@ unsigned int TGlobalParams::max_volume_to_be_drained  = DEFAULT_MAX_VOLUME_TO_BE
 vector<pair<int,double> > TGlobalParams::hotspots;
 
 int   TGlobalParams::choice                     = DEFAULT_choice;
+int   TGlobalParams::topology                   = DEFAULT_topology;
 
 //---------------------------------------------------------------------------
 
 void showHelp(char selfname[])
 {
   cout << "Usage: " << selfname << " [options]\nwhere [options] is one or more of the following ones:" << endl;
-
-cout << "\t-choice\t\tEpilogi kainourgio kodika,default 1 gia ton arxiko kodika  (default " << DEFAULT_choice << ")" << endl;
-
+  cout << "\t-choice\t\tEpilogi kainourgio kodika,default 1 gia ton arxiko kodika  (default " << DEFAULT_choice << ")" << endl;
+  cout << "\t-topology\t\tEpilogi topologias, 1: mesh, 2:custom fat tree (default " << DEFAULT_topology << ")" << endl;
   cout << "\t-help\t\tShow this help and exit" << endl;
   cout << "\t-verbose N\tVerbosity level (1=low, 2=medium, 3=high, default off)" << endl;
   cout << "\t-trace FILENAME\tTrace signals to a VCD file named 'FILENAME.vcd' (default off)" << endl;
@@ -163,6 +163,7 @@ void badInputFilename(char filename[])
 }
 
 //---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 
 int sc_main(int arg_num, char* arg_vet[])
 {
@@ -183,6 +184,7 @@ int sc_main(int arg_num, char* arg_vet[])
     int i=1;
     do
     {
+    	//strcmp returns 0 if strings are equal
       if(!strcmp(arg_vet[i],"-help")) showHelp(arg_vet[0]);
       else if(!strcmp(arg_vet[i],"-verbose"))
       {
@@ -213,6 +215,22 @@ int sc_main(int arg_num, char* arg_vet[])
 	{
           TGlobalParams::choice = new_choice;
           i+=2;
+	}
+        else badArgument(arg_vet[i+1], arg_vet[i]);
+      }
+	//*****************
+	//*****************
+	 else if(!strcmp(arg_vet[i],"-topology"))
+      {
+        int new_topology = atoi(arg_vet[i+1]);
+        if(new_topology<3)
+	{
+          TGlobalParams::topology = new_topology;
+          i+=2;
+	  if (new_topology==2) {
+	  TGlobalParams::mesh_dim_x = 3;
+	  TGlobalParams::mesh_dim_y = 2;
+	  }
 	}
         else badArgument(arg_vet[i+1], arg_vet[i]);
       }
@@ -280,7 +298,9 @@ int sc_main(int arg_num, char* arg_vet[])
           FILE* fp = fopen(TGlobalParams::routing_table_filename, "r");
           if(fp==NULL) badInputFilename(TGlobalParams::routing_table_filename);
           fclose(fp);
-          TGlobalParams::packet_injection_rate = 0;
+		  //Iasonas
+		  //Why to put zero in pir so you have to put a new value later? (ex. -pir 0.01)
+          //TGlobalParams::packet_injection_rate = 0;
           i++;
         }
         else badArgument(arg_vet[i+1], arg_vet[i]);
@@ -440,13 +460,13 @@ int sc_main(int arg_num, char* arg_vet[])
   // Signals
   sc_clock        clock("clock", 1, SC_NS);
   sc_signal<bool> reset;
-
+//****************************************************
   // NoC instance
   TNoC* n = new TNoC("NoC");
   n->clock(clock);
   n->reset(reset);
 
-  // Trace signals
+  // Trace signals --DEFAULT OFF!!
   sc_trace_file* tf = NULL;
   if(TGlobalParams::trace_mode)
   {
@@ -459,7 +479,8 @@ int sc_main(int arg_num, char* arg_vet[])
       for(int j=0; j<TGlobalParams::mesh_dim_y; j++)
       {
         char label[30];
-
+  //Iasonas		
+  //Usage of sc_trace:  sc_trace(tfile, signal_name, "signal_name");
         sprintf(label, "req_to_east(%02d)(%02d)", i, j);
         sc_trace(tf, n->req_to_east[i][j], label);
         sprintf(label, "req_to_west(%02d)(%02d)", i, j);
@@ -477,7 +498,7 @@ int sc_main(int arg_num, char* arg_vet[])
         sc_trace(tf, n->ack_to_south[i][j], label);
         sprintf(label, "ack_to_north(%02d)(%02d)", i, j);
         sc_trace(tf, n->ack_to_north[i][j], label);
-/*
+/*	Iasonas:Den douleyei!!(Den einai bool alla TFlit ara dn ginontai wave)
         sprintf(label, "flit_to_east(%02d)(%02d)", i, j);
         sc_trace(tf, n->flit_to_east[i][j], label);
         sprintf(label, "flit_to_west(%02d)(%02d)", i, j);
@@ -500,6 +521,7 @@ int sc_main(int arg_num, char* arg_vet[])
   reset.write(0);
   cout << " done! Now running for " << TGlobalParams::simulation_time << " cycles..." << endl;
   sc_start(TGlobalParams::simulation_time, SC_NS);
+  //cout << "to MAX_STATIC_DIM einai:\t" << MAX_STATIC_DIM << endl ;
 
   // Close the simulation
   if(TGlobalParams::trace_mode) sc_close_vcd_trace_file(tf);
